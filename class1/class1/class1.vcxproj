@@ -78,9 +78,11 @@
   <ItemGroup>
     <ClCompile Include="Array_max.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TeacherStudent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array_max.h" />
+    <ClInclude Include="TeacherStudent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

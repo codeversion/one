@@ -21,9 +21,15 @@
     <ClCompile Include="Array_max.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TeacherStudent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array_max.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TeacherStudent.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
