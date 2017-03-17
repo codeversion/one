@@ -7,21 +7,27 @@ using namespace std;
 
 void Array_max::set_value(){
     int i;
-    cout << "请输入10个整数" << endl;
-    for (i = 0; i < 10; i++){
+    cout << "请输入3个整数" << endl;
+    for (i = 0; i < 3; i++){
         cin >> array[i];
     }
 };
 void Array_max::max_value(){
-    set_value();
-    int i;
-    max = array[0];
-    for (i = 1; i < 10; i++){
-        if (array[i] > max)
-            max = array[i];
+    for (int i = 0; i < 10000; i++)
+    {
+        cout << "thread1111111111111111111111111111111111\n" ;
     }
-    show_value();
 };
 void Array_max::show_value(){
     cout << "max is :" << max << endl;
 };
+
+void Array_max::show_test(int a)
+{
+    for (int i = 0; i < 10000; i++)
+    {
+        cout << "thread2\n";
+    }
+}
+
+
