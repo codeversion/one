@@ -39,7 +39,7 @@ int main(){
     //fun_t(20);
     //fun_t(30);//这里只构造一次
 
-    ////4.单链表的18中操作
+    ////4.List.h单链表的18中操作
     //Node *pList = NULL;
     //int length = 0;
     //elemType posElem;
@@ -73,7 +73,7 @@ int main(){
     ////清空链表
     //clearList(pList);       
 
-    ////5.自适应边缘检测
+    ////5.AdaptiveFindThreshold.h自适应边缘检测
     //char buf[256] = { 0 };
     //for (int i = 1; i < 19; i++)
     //{
@@ -99,19 +99,70 @@ int main(){
     //}
 
 
-    //6.自适应二值化
-    for (int i = 1; i < 16; i++)
-    {
-        char filename[500];
-        sprintf(filename, "D:\\工作文件\\1224\\ZM0918\\srcimg%d.bmp", i);
-        IplImage*img = cvLoadImage(filename, -1);
-        //调用
-        AutoContrast_Hist2(img, 0.5, 0.5);
-        cvReleaseImage(&img);
-    }
+    ////6.AutoContrast_Hist.h自适应二值化
+    //for (int i = 1; i < 16; i++)
+    //{
+    //    char filename[500];
+    //    sprintf(filename, "D:\\工作文件\\1224\\ZM0918\\srcimg%d.bmp", i);
+    //    IplImage*img = cvLoadImage(filename, -1);
+    //    //调用
+    //    AutoContrast_Hist2(img, 0.5, 0.5);
+    //    cvReleaseImage(&img);
+    //}
 
-
-
+    ////7.直方图匹配  没有写成单独文件
+    //IplImage * image = cvLoadImage("G:\\screen1.bmp");
+    //IplImage * templateImg = cvLoadImage("F:\\save\\MuCurImage1.bmp");
+    ////
+    //int hist_size = 256;
+    //float range[] = { 0, 255 };
+    //float* ranges[] = { range };
+    ////
+    //IplImage* gray_plane = cvCreateImage(cvGetSize(image), 8, 1);
+    //cvCvtColor(image, gray_plane, CV_BGR2GRAY);
+    //CvHistogram* gray_hist = cvCreateHist(1, &hist_size, CV_HIST_ARRAY, ranges, 1);
+    //cvCalcHist(&gray_plane, gray_hist, 0, 0);
+    ////
+    //IplImage* gray_plane2 = cvCreateImage(cvGetSize(templateImg), 8, 1);
+    //cvCvtColor(templateImg, gray_plane2, CV_BGR2GRAY);
+    ////
+    //double r = 0;
+    //int row = 0;
+    //int col = 0;
+    //for (int i = 0; i < templateImg->height; i++)//for (int i = 0; i < templateImg->height; i++)
+    //{
+    //    for (int j = 3300; j < 3800; j++)//for (int j = 3300; j < 3800; j++)
+    //    {
+    //        CvRect tplRect = cvRect(j, i, image->width, image->height);
+    //        cvSetImageROI(gray_plane2, tplRect);
+    //        //
+    //        CvHistogram* gray_hist2 = cvCreateHist(1, &hist_size, CV_HIST_ARRAY, ranges, 1);
+    //        cvCalcHist(&gray_plane2, gray_hist2, 0, 0);
+    //        //
+    //        //相关：CV_COMP_CORREL    
+    //        //卡方：CV_COMP_CHISQR
+    //        //直方图相交：CV_COMP_INTERSECT
+    //        //Bhattacharyya距离：CV_COMP_BHATTACHARYYA
+    //        double com = cvCompareHist(gray_hist, gray_hist2, CV_COMP_CORREL);
+    //        //
+    //        if (com > r)
+    //        {
+    //            row = i;
+    //            col = j;
+    //            r = com;
+    //        }
+    //        if (com == 1)
+    //        {
+    //            cout << 2 << endl;
+    //        }
+    //    }
+    //}
+    //CvPoint pt1;
+    //CvPoint pt2;
+    //pt1 = cvPoint(col, row);
+    //pt2 = cvPoint(col + image->width, row + image->height);
+    //cvRectangle(templateImg, pt1, pt2, cvScalar(0, 0, 255), 1, 8, 0);
+    //cout << 1 << endl;
 
 
 
