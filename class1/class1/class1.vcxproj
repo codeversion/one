@@ -76,14 +76,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdaptiveFindThreshold.cpp" />
     <ClCompile Include="Array_max.cpp" />
+    <ClCompile Include="AutoContrast_Hist.cpp" />
     <ClCompile Include="Constructed_Destructor.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TeacherStudent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdaptiveFindThreshold.h" />
     <ClInclude Include="Array_max.h" />
+    <ClInclude Include="AutoContrast_Hist.h" />
     <ClInclude Include="Constructed_Destructor.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="TeacherStudent.h" />
