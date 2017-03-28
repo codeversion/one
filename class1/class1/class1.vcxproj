@@ -152,6 +152,7 @@
     <ClInclude Include="AdaptiveFindThreshold.h" />
     <ClInclude Include="Array_max.h" />
     <ClInclude Include="AutoContrast_Hist.h" />
+    <ClInclude Include="cacSIFTFeatureAndCompare.h" />
     <ClInclude Include="Constructed_Destructor.h" />
     <ClInclude Include="Histogram.h" />
     <ClInclude Include="List.h" />

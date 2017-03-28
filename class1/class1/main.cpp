@@ -7,6 +7,7 @@
 #include "AdaptiveFindThreshold.h"
 #include "AutoContrast_Hist.h"
 #include "Histogram.h"
+#include "cacSIFTFeatureAndCompare.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -165,18 +166,51 @@ int main(){
     //cvRectangle(templateImg, pt1, pt2, cvScalar(0, 0, 255), 1, 8, 0);
     //cout << 1 << endl;
 
-    //生成直方图
-    IplImage * src = cvLoadImage("E:\\纸管资料\\1516纸管测试图片\\2015纸管测试图库\\2015threeweeks\\1218图库\\1\\MBImg\\MBLImage1.bmp");
-    IplImage* gray_plane = cvCreateImage(cvGetSize(src), 8, 1);
-    cvCvtColor(src, gray_plane, CV_BGR2GRAY);
-
-    //方法一
-    int h[256] = { 0 };
-    GetHistogram(gray_plane, h);
-    ShowHistogram(h);
-    //方法二
-    //DrawHistogram(gray_plane);
+    ////8.Histogram.h生成直方图
+    //IplImage * src = cvLoadImage("E:\\纸管资料\\1516纸管测试图片\\2015纸管测试图库\\2015threeweeks\\1218图库\\1\\MBImg\\MBLImage1.bmp");
+    //IplImage* gray_plane = cvCreateImage(cvGetSize(src), 8, 1);
+    //cvCvtColor(src, gray_plane, CV_BGR2GRAY);
+    ////方法一
+    //int h[256] = { 0 };
+    //GetHistogram(gray_plane, h);
+    //ShowHistogram(h);
+    ////方法二
+    ////DrawHistogram(gray_plane);
     
+    ////9.将图片序列合成视频//没有写单独文件
+    ////显示数字的视频
+    //Size s(320, 240);
+    //VideoWriter writer = VideoWriter("myvideo.avi", CV_FOURCC('M', 'J', 'P', 'G'), 25, s);
+    //Mat frame(s, CV_8UC3);
+    //for (int i = 0; i < 100; i++)
+    //{
+    //	frame = Scalar::all(0);
+    //	//char text[128] = "阿德斯防守对方";//不能putText中文
+    //	char text[128] = {0};
+    //	//printf(text, sizeof(text), "%d", i);//不清楚用意
+    //	
+    //	sprintf_s(text, "%d", i);   //sprintf(str_i,"%d",(i+1));
+    //	
+    //	//void putText(Mat& img, const string& text, Point org, int fontFace, double fontScale, Scalar color, int thickness=1, int lineType=8, bool bottomLeftOrigin=false )
+    //	putText(frame, text, Point(s.width / 3, s.height / 3), FONT_HERSHEY_SCRIPT_SIMPLEX, 3, Scalar(0, 0, 255),2,1);  //CV_FONT_HERSHEY_COMPLEX  , 3,  8  FONT_HERSHEY_SCRIPT_SIMPLEX
+    //	writer << frame;
+    //}
+
+    //10.cacSIFTFeatureAndCompare.h计算图像的SIFT特征及匹配
+    // 读取源图像及待匹配图像
+    cv::Mat srcImage1 =
+    cv::imread("F:\\20160427新算法测试\\kernel2.bmp", 1);
+    if (srcImage1.empty())
+    return -1;
+    cv::Mat srcImage2 =
+    cv::imread("F:\\20160427新算法测试\\kernel2.bmp", 1);
+    if (srcImage2.empty())
+    return -1;
+    double time = (double)cvGetTickCount();
+    float matchRate = cacSIFTFeatureAndCompare(srcImage1, srcImage2, 1000);
+    time = ((double)cvGetTickCount() - time) / (cvGetTickFrequency() * 1000);
+    cout << "运行时间: " << time << "ms" << endl;
+    std::cout << "matchRate: " << matchRate << std::endl;
 
 
 
