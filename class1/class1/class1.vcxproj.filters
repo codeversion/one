@@ -36,6 +36,9 @@
     <ClCompile Include="AutoContrast_Hist.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Histogram.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array_max.h">
@@ -54,6 +57,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="AutoContrast_Hist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Histogram.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

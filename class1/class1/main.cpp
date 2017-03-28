@@ -6,6 +6,7 @@
 #include "List.h"
 #include "AdaptiveFindThreshold.h"
 #include "AutoContrast_Hist.h"
+#include "Histogram.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -14,7 +15,7 @@ using namespace std;
 
 
 //(1/2)Constructed_Destructor.h测试构造函数原理，当在全局中使用对象是，都构造。函数内对象调用构造只有一次
-Test m(100);
+//Test m(100);
 
 int main(){
     ////1.Array_max.h最简单类方法示例，类成员函数多线程示例
@@ -164,8 +165,18 @@ int main(){
     //cvRectangle(templateImg, pt1, pt2, cvScalar(0, 0, 255), 1, 8, 0);
     //cout << 1 << endl;
 
+    //生成直方图
+    IplImage * src = cvLoadImage("E:\\纸管资料\\1516纸管测试图片\\2015纸管测试图库\\2015threeweeks\\1218图库\\1\\MBImg\\MBLImage1.bmp");
+    IplImage* gray_plane = cvCreateImage(cvGetSize(src), 8, 1);
+    cvCvtColor(src, gray_plane, CV_BGR2GRAY);
 
-
+    //方法一
+    int h[256] = { 0 };
+    GetHistogram(gray_plane, h);
+    ShowHistogram(h);
+    //方法二
+    //DrawHistogram(gray_plane);
+    
 
 
 

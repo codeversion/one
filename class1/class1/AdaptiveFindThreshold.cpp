@@ -57,7 +57,7 @@ void _AdaptiveFindThreshold(CvMat *dx, CvMat *dy, double *low, double *high)
     cvReleaseHist(&hist);
 }
 
-void AdaptiveFindThreshold(const CvArr* image, double *low, double *high, int aperture_size = 3)
+void AdaptiveFindThreshold(const CvArr* image, double *low, double *high, int aperture_size)
 {
     cv::Mat src = cv::cvarrToMat(image);//将cvArr转为Mat类型
     const int cn = src.channels();
