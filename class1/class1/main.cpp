@@ -8,6 +8,7 @@
 #include "AutoContrast_Hist.h"
 #include "Histogram.h"
 #include "cacSIFTFeatureAndCompare.h"
+#include "rotateImage.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -196,21 +197,37 @@ int main(){
     //	writer << frame;
     //}
 
-    //10.cacSIFTFeatureAndCompare.h计算图像的SIFT特征及匹配
-    // 读取源图像及待匹配图像
-    cv::Mat srcImage1 =
-    cv::imread("F:\\20160427新算法测试\\kernel2.bmp", 1);
-    if (srcImage1.empty())
-    return -1;
-    cv::Mat srcImage2 =
-    cv::imread("F:\\20160427新算法测试\\kernel2.bmp", 1);
-    if (srcImage2.empty())
-    return -1;
-    double time = (double)cvGetTickCount();
-    float matchRate = cacSIFTFeatureAndCompare(srcImage1, srcImage2, 1000);
-    time = ((double)cvGetTickCount() - time) / (cvGetTickFrequency() * 1000);
-    cout << "运行时间: " << time << "ms" << endl;
-    std::cout << "matchRate: " << matchRate << std::endl;
+    ////10.cacSIFTFeatureAndCompare.h计算图像的SIFT特征及匹配
+    //// 读取源图像及待匹配图像
+    //cv::Mat srcImage1 =
+    //cv::imread("F:\\20160427新算法测试\\kernel2.bmp", 1);
+    //if (srcImage1.empty())
+    //return -1;
+    //cv::Mat srcImage2 =
+    //cv::imread("F:\\20160427新算法测试\\kernel2.bmp", 1);
+    //if (srcImage2.empty())
+    //return -1;
+    //double time = (double)cvGetTickCount();
+    //float matchRate = cacSIFTFeatureAndCompare(srcImage1, srcImage2, 1000);
+    //time = ((double)cvGetTickCount() - time) / (cvGetTickFrequency() * 1000);
+    //cout << "运行时间: " << time << "ms" << endl;
+    //std::cout << "matchRate: " << matchRate << std::endl;
+
+    //11.旋转图像
+    char buf[256];
+    char filename[300];
+    sprintf(filename, "F:\\20160427新算法测试\\kernel1.bmp", 1);
+    IplImage*src = cvLoadImage(filename, 1);
+    IplImage*img = cvCreateImage(cvSize(src->width * 1, src->height * 1), src->depth, src->nChannels);
+    //
+    //rotateImage2(src, -1);
+    img = FitRotate(src, -10);
+    //
+    memset(buf, 0, 256);
+    sprintf_s(buf, "F:\\20160427新算法测试\\screen%d.bmp", 02); //设置保存路径
+    //cvSaveImage(buf, img);
+    
+
 
 
 

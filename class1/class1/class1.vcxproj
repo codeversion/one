@@ -142,6 +142,7 @@
     <ClCompile Include="AdaptiveFindThreshold.cpp" />
     <ClCompile Include="Array_max.cpp" />
     <ClCompile Include="AutoContrast_Hist.cpp" />
+    <ClCompile Include="cacSIFTFeatureAndCompare.cpp" />
     <ClCompile Include="Constructed_Destructor.cpp" />
     <ClCompile Include="Histogram.cpp" />
     <ClCompile Include="List.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Constructed_Destructor.h" />
     <ClInclude Include="Histogram.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="rotateImage.h" />
     <ClInclude Include="TeacherStudent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
